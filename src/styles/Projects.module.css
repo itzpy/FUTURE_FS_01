@@ -1,0 +1,15 @@
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.techTag {
+  background: rgba(102, 126, 234, 0.15);
+  color: #667eea;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 500;
+}
