@@ -37,7 +37,7 @@ export const projectsData = [
     technologies: ['Research Methodology', 'Data Analysis', 'Statistical Analysis', 'Presentation Design', 'Community Engagement'],
     image: '/projects/help-initiative.png',
     liveLink: 'https://www.canva.com/design/DAFsXhju92w/6yO86Gbqh5j_7MyflpsWSQ/view?utm_content=DAFsXhju92w&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h87db8b0d24', 
-    githubLink: '#', 
+    // githubLink: '', 
     category: 'Research',
     status: 'Completed'
   },
@@ -55,10 +55,10 @@ export const projectsData = [
       'Optimized for SEO and fast loading times',
       'Deployed with continuous integration and deployment pipeline'
     ],
-    technologies: ['React.js', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS3', 'Responsive Design'],
-    image: '/projects/portfolio.svg',
+    technologies: ['Next.Js','React.js', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS3', 'Responsive Design'],
+    image: '/projects/portfolio.png',
     liveLink: 'https://portfolio-for-py.vercel.app/', 
-    githubLink: 'https://github.com/itzpy" ', 
+    githubLink: 'https://github.com/itzpy/Portfolio-for-PY ', 
     category: 'Web Development',
     status: 'In Progress'
   }
