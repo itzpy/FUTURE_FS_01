@@ -14,7 +14,7 @@ export default function Header() {
       {/* Professional Photo */}
       <div className="w-[180px] h-[180px] rounded-full mx-auto mb-8 overflow-hidden shadow-2xl border-4 border-white dark:border-dark-highlight">
         <img 
-          src="/profile-photo.jpg" 
+          src="/profile-photo.JPEG" 
           alt="Papa Yaw Badu - Professional Photo"
           className="w-full h-full object-cover object-center"
           onError={(e) => {
@@ -43,11 +43,11 @@ export default function Header() {
       <div className="max-w-3xl mx-auto mb-8">
         <p className="text-lg text-slate-700 dark:text-dark-text leading-relaxed mb-4">
           Welcome to my professional portfolio! I'm a passionate Computer Science student at Ashesi University 
-          with a strong foundation in software development and problem-solving. Currently seeking internship 
+          with a strong foundation in software development and problem-solving and ethical leadership. Currently seeking internship 
           opportunities to apply my technical skills and contribute to innovative projects.
         </p>
         <p className="text-base text-slate-600 dark:text-dark-muted">
-          I specialize in web development, database management, and have experience in tutoring mathematics. 
+          I specialize in web development, database management.
           I'm excited to bring my technical expertise and leadership experience to your team.
         </p>
       </div>
@@ -72,7 +72,7 @@ export default function Header() {
           target="_blank" 
           rel="noopener noreferrer"
         >
-          <span role="img" aria-label="linkedin">�</span> LinkedIn
+          <span role="img" aria-label="linkedin">💼</span> LinkedIn
         </a>
       </div>
     </header>

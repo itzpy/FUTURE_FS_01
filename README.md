@@ -1,4 +1,4 @@
-# Papa Yaw Badu Portfolio - Next.js
+# Papa Yaw Badu Portfolio
 
 A modern portfolio website built with Next.js and React to showcase my skills, experience, and projects. This project was converted from a static HTML/CSS site to a modern React application.
 
