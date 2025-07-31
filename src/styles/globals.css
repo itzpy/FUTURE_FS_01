@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,9 +9,8 @@
   }
   
   body {
-    @apply bg-gradient-to-br from-primary-light/80 to-primary-dark dark:from-dark-background dark:to-dark-background;
-    @apply text-slate-800 dark:text-dark-text;
-    @apply min-h-screen font-sans;
+    @apply bg-dark-950 text-dark-300;
+    @apply min-h-screen font-inter;
     @apply transition-all duration-500;
   }
   
@@ -21,6 +21,65 @@
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold;
+  }
+}
+
+@layer components {
+  /* Glass Effect */
+  .glass-effect {
+    background: rgba(17, 17, 33, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(74, 111, 165, 0.3);
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #f43f5e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Navigation Link Hover Effect */
+  .nav-link {
+    @apply relative transition-all duration-300;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-accent-cyan to-accent-violet;
+    @apply transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  /* Skill Bar */
+  .skill-bar {
+    background: linear-gradient(90deg, #06b6d4 0%, #8b5cf6 100%);
+    @apply h-2 rounded transition-all duration-300;
+  }
+  
+  /* Project Card Hover */
+  .project-card {
+    @apply transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .project-card:hover {
+    @apply -translate-y-2;
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent-cyan to-accent-violet text-white px-8 py-4 rounded-full font-semibold;
+    @apply hover:shadow-lg transform hover:scale-105 transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-dark-700 text-dark-300 px-8 py-4 rounded-full font-semibold;
+    @apply hover:border-accent-cyan hover:text-accent-cyan transition-all duration-300;
   }
 }
 

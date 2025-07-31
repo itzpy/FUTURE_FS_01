@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Design Sample - Papa Yaw Badu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f4ff',
+                            100: '#e0e7ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        },
+                        dark: {
+                            950: '#0a0a0f',
+                            900: '#111121',
+                            850: '#1a1a2e',
+                            800: '#16213e',
+                            750: '#233556',
+                            700: '#2d4a75',
+                            600: '#4a6fa5',
+                            500: '#64748b',
+                            400: '#94a3b8',
+                            300: '#cbd5e1',
+                        },
+                        accent: {
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            violet: '#8b5cf6',
+                            rose: '#f43f5e',
+                            amber: '#f59e0b',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'fade-in-down': 'fadeInDown 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.5s ease-out',
+                        'slide-in-right': 'slideInRight 0.6s ease-out',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-effect {
+            background: rgba(17, 17, 33, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 111, 165, 0.3);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #f43f5e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .skill-bar {
+            background: linear-gradient(90deg, #06b6d4 0%, #8b5cf6 100%);
+            height: 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+<body class="bg-dark-950 text-dark-300 min-h-screen">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">PYB</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-dark-400 hover:text-white font-medium">Home</a>
+                    <a href="#about" class="nav-link text-dark-400 hover:text-white font-medium">About</a>
+                    <a href="#projects" class="nav-link text-dark-400 hover:text-white font-medium">Projects</a>
+                    <a href="#skills" class="nav-link text-dark-400 hover:text-white font-medium">Skills</a>
+                    <a href="#contact" class="nav-link text-dark-400 hover:text-white font-medium">Contact</a>
+                </div>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-dark-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center animate-fade-in-up">
+                <!-- Profile Image with Floating Animation -->
+                <div class="relative inline-block mb-8">
+                    <div class="w-48 h-48 mx-auto rounded-full overflow-hidden shadow-2xl floating border-4 border-dark-700">
+                        <img src="/profile-photo.JPEG" alt="Papa Yaw Badu" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-accent-cyan to-accent-violet rounded-full animate-pulse"></div>
+                    <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-accent-violet to-accent-rose rounded-full animate-pulse delay-75"></div>
+                </div>
+                
+                <!-- Name and Title -->
+                <h1 class="text-6xl md:text-7xl font-bold mb-6 animate-fade-in-down">
+                    <span class="gradient-text">Papa Yaw Badu</span>
+                </h1>
+                
+                <p class="text-2xl md:text-3xl text-dark-400 mb-8 animate-fade-in-up delay-100">
+                    Full-Stack Developer & Software Engineer
+                </p>
+                
+                <!-- Call to Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-200">
+                    <button class="bg-gradient-to-r from-accent-cyan to-accent-violet text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-download mr-2"></i>Download Resume
+                    </button>
+                    <button class="border-2 border-dark-700 text-dark-300 px-8 py-4 rounded-full font-semibold hover:border-accent-cyan hover:text-accent-cyan transition-all duration-300">
+                        <i class="fas fa-envelope mr-2"></i>Get In Touch
+                    </button>
+                </div>
+                
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-6 mt-12 animate-fade-in-up delay-300">
+                    <a href="#" class="w-12 h-12 bg-dark-800 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:bg-blue-600 border border-dark-700">
+                        <i class="fab fa-linkedin-in text-accent-cyan"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-dark-800 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:bg-gray-700 border border-dark-700">
+                        <i class="fab fa-github text-dark-300"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-dark-800 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:bg-red-600 border border-dark-700">
+                        <i class="fas fa-envelope text-accent-rose"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-dark-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6 gradient-text">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-cyan to-accent-violet mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in-up">
+                    <h3 class="text-3xl font-semibold mb-6 text-white">Passionate Developer</h3>
+                    <p class="text-lg text-dark-400 mb-6 leading-relaxed">
+                        I'm a dedicated full-stack developer with a passion for creating innovative web solutions. 
+                        With experience in modern technologies like React, Node.js, and cloud platforms, I bring 
+                        ideas to life through clean, efficient code.
+                    </p>
+                    <p class="text-lg text-dark-400 mb-8 leading-relaxed">
+                        When I'm not coding, you can find me exploring new technologies, contributing to open-source 
+                        projects, or mentoring aspiring developers in my community.
+                    </p>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent-cyan mb-2">3+</div>
+                            <div class="text-dark-500">Years Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent-violet mb-2">25+</div>
+                            <div class="text-dark-500">Projects Completed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-accent-emerald mb-2">15+</div>
+                            <div class="text-dark-500">Technologies</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-slide-in-right">
+                    <!-- Skills Preview -->
+                    <div class="bg-dark-850 p-8 rounded-2xl shadow-lg border border-dark-750">
+                        <h4 class="text-2xl font-semibold mb-6 text-white">Core Technologies</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-dark-300">React/JavaScript</span>
+                                    <span class="text-dark-400">90%</span>
+                                </div>
+                                <div class="bg-dark-750 rounded-full h-2">
+                                    <div class="skill-bar w-[90%] h-full rounded-full"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-dark-300">Node.js/Express</span>
+                                    <span class="text-dark-400">85%</span>
+                                </div>
+                                <div class="bg-dark-750 rounded-full h-2">
+                                    <div class="skill-bar w-[85%] h-full rounded-full"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-dark-300">Python/Django</span>
+                                    <span class="text-dark-400">80%</span>
+                                </div>
+                                <div class="bg-dark-750 rounded-full h-2">
+                                    <div class="skill-bar w-[80%] h-full rounded-full"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-dark-300">Database Management</span>
+                                    <span class="text-dark-400">75%</span>
+                                </div>
+                                <div class="bg-dark-750 rounded-full h-2">
+                                    <div class="skill-bar w-[75%] h-full rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-dark-950">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6 gradient-text">Featured Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-cyan to-accent-violet mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-dark-850 border border-dark-750 rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-accent-cyan to-accent-violet relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-hospital text-white text-6xl opacity-90"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-white">Hospital Management System</h3>
+                        <p class="text-dark-400 mb-4">A comprehensive hospital management system built with React and Node.js, featuring patient records, appointment scheduling, and staff management.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-900/50 text-accent-cyan rounded-full text-sm border border-blue-800">React</span>
+                            <span class="px-3 py-1 bg-green-900/50 text-accent-emerald rounded-full text-sm border border-green-800">Node.js</span>
+                            <span class="px-3 py-1 bg-purple-900/50 text-accent-violet rounded-full text-sm border border-purple-800">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="flex-1 bg-gradient-to-r from-accent-cyan to-accent-violet text-white py-2 rounded-lg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </button>
+                            <button class="px-4 py-2 border border-dark-700 rounded-lg hover:border-dark-600 transition-all duration-300 text-dark-300">
+                                <i class="fab fa-github"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="project-card bg-dark-850 border border-dark-750 rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-accent-emerald to-accent-cyan relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-hands-helping text-white text-6xl opacity-90"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-white">Help Initiative Platform</h3>
+                        <p class="text-dark-400 mb-4">A community-driven platform connecting volunteers with local initiatives, built with modern web technologies and responsive design.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-900/50 text-accent-cyan rounded-full text-sm border border-blue-800">React</span>
+                            <span class="px-3 py-1 bg-orange-900/50 text-accent-amber rounded-full text-sm border border-orange-800">Firebase</span>
+                            <span class="px-3 py-1 bg-red-900/50 text-accent-rose rounded-full text-sm border border-red-800">Tailwind</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="flex-1 bg-gradient-to-r from-accent-emerald to-accent-cyan text-white py-2 rounded-lg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </button>
+                            <button class="px-4 py-2 border border-dark-700 rounded-lg hover:border-dark-600 transition-all duration-300 text-dark-300">
+                                <i class="fab fa-github"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="project-card bg-dark-850 border border-dark-750 rounded-2xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-accent-violet to-accent-rose relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-user text-white text-6xl opacity-90"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-white">Portfolio Website</h3>
+                        <p class="text-dark-400 mb-4">A modern, responsive portfolio website showcasing projects and skills with smooth animations and dark mode support.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-900/50 text-accent-cyan rounded-full text-sm border border-blue-800">React</span>
+                            <span class="px-3 py-1 bg-red-900/50 text-accent-rose rounded-full text-sm border border-red-800">Tailwind</span>
+                            <span class="px-3 py-1 bg-gray-800/50 text-dark-300 rounded-full text-sm border border-gray-700">Framer Motion</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="flex-1 bg-gradient-to-r from-accent-violet to-accent-rose text-white py-2 rounded-lg hover:shadow-lg transition-all duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </button>
+                            <button class="px-4 py-2 border border-dark-700 rounded-lg hover:border-dark-600 transition-all duration-300 text-dark-300">
+                                <i class="fab fa-github"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-dark-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-5xl font-bold mb-6 gradient-text">Let's Work Together</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-accent-cyan to-accent-violet mx-auto rounded-full mb-8"></div>
+            <p class="text-xl text-dark-400 mb-12">
+                Ready to bring your ideas to life? Let's discuss your next project.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-accent-cyan to-accent-violet rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Email</h3>
+                    <p class="text-dark-400">papayawbadu@gmail.com</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-accent-emerald to-accent-cyan rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Phone</h3>
+                    <p class="text-dark-400">+233 50 XXX XXXX</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-accent-violet to-accent-rose rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-white mb-2">Location</h3>
+                    <p class="text-dark-400">Accra, Ghana</p>
+                </div>
+            </div>
+            
+            <button class="bg-gradient-to-r from-accent-cyan to-accent-violet text-white px-12 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                <i class="fas fa-paper-plane mr-2"></i>Start a Conversation
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-950 text-white py-12 px-6 border-t border-dark-800">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="text-3xl font-bold gradient-text mb-4">Papa Yaw Badu</div>
+            <p class="text-dark-400 mb-8">Building digital experiences that matter</p>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="w-10 h-10 bg-dark-850 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-300 border border-dark-750">
+                    <i class="fab fa-linkedin-in text-accent-cyan"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-dark-850 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors duration-300 border border-dark-750">
+                    <i class="fab fa-github text-dark-300"></i>
+                </a>
+                <a href="#" class="w-10 h-10 bg-dark-850 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-300 border border-dark-750">
+                    <i class="fas fa-envelope text-accent-rose"></i>
+                </a>
+            </div>
+            
+            <div class="border-t border-dark-800 pt-8">
+                <p class="text-dark-400">&copy; 2025 Papa Yaw Badu. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-accent-cyan to-accent-violet text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 opacity-0 pointer-events-none border border-dark-750">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+                scrollToTopBtn.style.pointerEvents = 'auto';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+                scrollToTopBtn.style.pointerEvents = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fade-in-up, .animate-fade-in-down, .animate-slide-in-right').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
